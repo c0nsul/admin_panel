@@ -104,12 +104,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link ">
+                                <a href="{{route('category.index')}}" class="nav-link ">
                                     <p>All categories</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link ">
+                                <a href="{{route('category.create')}}" class="nav-link ">
                                     <p>Add new category</p>
                                 </a>
                             </li>
