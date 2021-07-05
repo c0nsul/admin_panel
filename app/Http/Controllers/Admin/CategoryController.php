@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -44,7 +45,7 @@ class CategoryController extends Controller
         $newCategory->title = $request->title;
         $newCategory->save();
 
-        return redirect()->back()->withSuccess('Category was succsessful creatred!');
+        return redirect()->back()->withSuccess('Category was successful created!');
     }
 
     /**
@@ -66,7 +67,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit',[
+            'category' =>$category
+        ]
+    );
     }
 
     /**
@@ -78,7 +82,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->title = $request->title;
+        $category->save();
+
+        return redirect()->back()->withSuccess('Category was successful updated!');
     }
 
     /**
@@ -89,6 +96,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back()->withSuccess('Category was successful deleted!');
     }
 }

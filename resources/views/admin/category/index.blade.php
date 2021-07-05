@@ -19,6 +19,13 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" area-hidden="true">x</button>
+                <h4><i class="icon fas fa-check"></i>{{session('success')}} </h4>
+            </div>
+        @endif
+
 
         <div class="card">
             <div class="card-body p-0">
@@ -31,7 +38,7 @@
                         <th style="width: 20%">
                             Category Name
                         </th>
-                        <th style="width: 30%">
+                        <th style="width: 20%">
                         </th>
                     </tr>
                     </thead>
@@ -46,16 +53,20 @@
                             {{$category['title']}}
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="{{ route('category.edit', $category['id'])}}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash">
-                                </i>
-                                Delete
-                            </a>
+                            <form action="{{ route('category.destroy', $category['id']) }}" METHOD="post" style="display: inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm delete-btn">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
