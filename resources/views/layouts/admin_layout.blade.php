@@ -175,6 +175,6 @@
 <script src="https://cdn.tiny.cloud/1/o5xgxumj8rhvjvg4dmkpyfk7ee5pmfdwu6dfiol46u1m3ktb/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="/admin/admin.js"></script>
 <script type="text/javascript" src="/admin/dist/js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.min.js"></script>
+<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
 </body>
 </html>
