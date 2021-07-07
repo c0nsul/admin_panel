@@ -53,4 +53,4 @@
     </section>
     <!-- /.content -->
 
-@endsection;
+@endsection
