@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <label for="img">Article image</label>
-                                <img src="/{{$post['img']}}" alt="" class="img-uploaded" style="display: block; max-width: 300px">
+                                <img src="{{$post['img']}}" alt="" class="img-uploaded" style="display: block; max-width: 300px">
                                 <input class="form-control" type="text" id="img" name="img" value="{{$post['img']}}" readonly>
                                 <a href="" class="popup_selector btn btn-primary mt-1" data-inputid="img">Select Image</a>
                             </div>
