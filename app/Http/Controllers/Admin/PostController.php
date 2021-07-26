@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -16,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('created_at', 'DESC')->get();
+
+        return view('admin.post.index', [
+            'posts' => $posts,
+        ]);
     }
 
     /**
@@ -43,6 +48,9 @@ class PostController extends Controller
     {
         $newPost = new Post();
         $newPost->title = $request->title;
+        $newPost->img = $request->img;
+        $newPost->text = $request->text;
+        $newPost->cat_id = $request->cat_id;
         $newPost->save();
 
         return redirect()->back()->withSuccess('Article was successful created!');
@@ -67,7 +75,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+
+        return view('admin.post.edit', [
+            'categories' => $categories,
+            'post' => $post
+        ]);
     }
 
     /**
@@ -79,7 +92,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $newPost = new Post();
+        $newPost->title = $request->title;
+        $newPost->img = $request->img;
+        $newPost->text = $request->text;
+        $newPost->cat_id = $request->cat_id;
+        $newPost->save();
+
+        return redirect()->back()->withSuccess('Article was successful updated!');
     }
 
     /**
